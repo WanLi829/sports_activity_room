@@ -1,0 +1,324 @@
+/* 订单页面 */
+.order-page {
+  background: linear-gradient(135deg, #1a365d, #27598a);
+  min-height: 100vh;
+  padding: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f7fafc;
+}
+
+.order-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.order-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #fff, #ffb366);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  color: #ffb366;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+  background: rgba(237, 137, 54, 0.2);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+}
+
+.order-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+}
+
+.order-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.order-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.order-status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px 20px;
+  border-radius: 0 16px 0 16px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.status-pending {
+  background: linear-gradient(to right, #f6ad55, #ed8936);
+}
+
+.status-confirmed {
+  background: linear-gradient(to right, #68d391, #48bb78);
+}
+
+.status-cancelled {
+  background: linear-gradient(to right, #fc8181, #e53e3e);
+}
+
+.order-activity {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.order-detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-label {
+  color: #a0aec0;
+  font-weight: 500;
+}
+
+.detail-value {
+  color: #f7fafc;
+  font-weight: 500;
+}
+
+.order-date {
+  color: #ffb366;
+  font-weight: 500;
+}
+
+.order-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.action-button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-details {
+  background: rgba(56, 178, 172, 0.2);
+  color: #38b2ac;
+  border: 1px solid rgba(56, 178, 172, 0.3);
+}
+
+.view-details:hover {
+  background: rgba(56, 178, 172, 0.3);
+  transform: translateY(-3px);
+}
+
+.cancel-order {
+  background: rgba(245, 101, 101, 0.2);
+  color: #f56565;
+  border: 1px solid rgba(245, 101, 101, 0.3);
+}
+
+.cancel-order:hover {
+  background: rgba(245, 101, 101, 0.3);
+  transform: translateY(-3px);
+}
+
+.no-orders {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.no-orders-icon {
+  font-size: 4rem;
+  color: #ffb366;
+  margin-bottom: 20px;
+}
+
+.no-orders-title {
+  font-size: 2rem;
+  color: #ffb366;
+  margin-bottom: 15px;
+}
+
+.no-orders-text {
+  color: #cbd5e0;
+  max-width: 600px;
+  margin: 0 auto 25px;
+  line-height: 1.6;
+}
+
+.explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 30px;
+  background: #ed8936;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.explore-link:hover {
+  background: #dd6b20;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+}
+
+.login-prompt {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.login-prompt-icon {
+  font-size: 4rem;
+  color: #ffb366;
+  margin-bottom: 20px;
+}
+
+.login-prompt-title {
+  font-size: 2rem;
+  color: #ffb366;
+  margin-bottom: 15px;
+}
+
+.login-prompt-text {
+  color: #cbd5e0;
+  max-width: 600px;
+  margin: 0 auto 25px;
+  line-height: 1.6;
+}
+
+.login-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 30px;
+  background: #ed8936;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  background: #dd6b20;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* 基于AI生成的响应式设计 */
+@media (max-width: 768px) {
+  .order-page {
+    padding: 20px 15px;
+  }
+  
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .order-title {
+    font-size: 2rem;
+  }
+  
+  .order-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .order-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .order-page {
+    padding: 15px 10px;
+  }
+  
+  .order-title {
+    font-size: 1.8rem;
+  }
+  
+  .order-card {
+    padding: 20px;
+  }
+  
+  .no-orders-title, .login-prompt-title {
+    font-size: 1.8rem;
+  }
+}

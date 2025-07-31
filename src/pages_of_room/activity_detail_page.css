@@ -1,0 +1,381 @@
+/* 活动详情页面样式 */
+.detail-page {
+  background: linear-gradient(135deg, #1a365d, #27598a);
+  min-height: 100vh;
+  padding: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f7fafc;
+}
+
+.detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  color: #ffb366;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.back-button:hover {
+  background: rgba(237, 137, 54, 0.2);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+}
+
+.activity-detail-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-bottom: 40px;
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.activity-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #fff, #ffb366);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  max-width: 80%;
+}
+
+.activity-date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  color: #ffb366;
+  background: rgba(255, 179, 102, 0.1);
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.activity-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #e2e8f0;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.signup-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.signup-button {
+  padding: 16px 40px;
+  background: #ed8936;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.signup-button:hover {
+  background: #dd6b20;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cancel-button {
+  background: rgba(245, 101, 101, 0.2);
+  color: #f56565;
+}
+
+.cancel-button:hover {
+  background: rgba(245, 101, 101, 0.3);
+}
+
+.comments-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.comments-title {
+  font-size: 2rem;
+  color: #ffb366;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.comment-form {
+  margin-bottom: 40px;
+}
+
+.comment-input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.comment-input {
+  padding: 16px 20px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.comment-input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(237, 137, 54, 0.4);
+}
+
+.comment-button {
+  padding: 14px 30px;
+  background: #38b2ac;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comment-button:hover {
+  background: #319795;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.25);
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.comment-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.comment-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.comment-user {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffb366;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.comment-time {
+  color: #a0aec0;
+  font-size: 0.9rem;
+}
+
+.comment-content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+  margin-bottom: 20px;
+}
+
+.comment-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.delete-comment {
+  padding: 8px 16px;
+  background: rgba(245, 101, 101, 0.2);
+  color: #f56565;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.delete-comment:hover {
+  background: rgba(245, 101, 101, 0.3);
+}
+
+.not-found {
+  text-align: center;
+  padding: 100px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.not-found-icon {
+  font-size: 4rem;
+  color: #ffb366;
+  margin-bottom: 20px;
+}
+
+.not-found-title {
+  font-size: 2.5rem;
+  color: #ffb366;
+  margin-bottom: 15px;
+}
+
+.not-found-text {
+  color: #cbd5e0;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 30px;
+  background: #ed8936;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.explore-link:hover {
+  background: #dd6b20;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+  .activity-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .activity-title {
+    max-width: 100%;
+    font-size: 2.4rem;
+  }
+  
+  .activity-date {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-page {
+    padding: 20px 15px;
+  }
+  
+  .activity-detail-card,
+  .comments-section {
+    padding: 30px;
+  }
+  
+  .activity-title {
+    font-size: 2rem;
+  }
+  
+  .activity-date {
+    font-size: 1.2rem;
+  }
+  
+  .activity-description {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-page {
+    padding: 15px 10px;
+  }
+  
+  .activity-detail-card,
+  .comments-section {
+    padding: 20px;
+  }
+  
+  .activity-title {
+    font-size: 1.8rem;
+  }
+  
+  .activity-date {
+    font-size: 1.1rem;
+    padding: 8px 15px;
+  }
+  
+  .signup-button {
+    padding: 14px 30px;
+    font-size: 1.1rem;
+  }
+  
+  .comments-title {
+    font-size: 1.6rem;
+  }
+}

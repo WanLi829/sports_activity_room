@@ -1,0 +1,378 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: linear-gradient(135deg, #1a365d, #27598a);
+  color: #f7fafc;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 主容器 */
+.home-container {
+  display: flex;
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* 左侧容器*/
+.left-side {
+  width: 360px;
+  min-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 0 0 0 20px;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* 右侧容器 */
+.right-side {
+  flex: 1;
+  padding: 30px; 
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.logo-icon {
+  font-size: 2.5rem;
+  color: #ffb366;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #e98585, #ed9338);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.5px;
+}
+
+/* 认证 */
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  margin-top: 10px;
+}
+.user-name {
+  font-size: 1.8rem;
+  color: #ffb366;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 179, 102, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-container {
+  padding: 15px 0;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #cbd5e0;
+  padding: 14px 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-link:hover {
+  background: rgba(237, 137, 54, 0.2);
+  color: white;
+  transform: translateX(5px);
+}
+
+.nav-link i {
+  font-size: 1.3rem;
+  color: #ffb366;
+}
+
+.search-container-wrapper {
+  padding: 15px 0;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.search-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffb366;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box {
+  padding: 15px 20px;
+  width: 100%;
+  border: none;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
+}
+
+.search-box::placeholder {
+  color: rgba(203, 213, 224, 0.7);
+}
+
+.search-box:focus {
+  background: rgba(255, 255, 255, 0.25);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(237, 137, 54, 0.4);
+}
+
+
+.activity-list-container {
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  padding: 15px;
+  background: linear-gradient(
+    to bottom, 
+    rgba(26, 54, 93, 0.8), 
+    rgba(39, 89, 138, 0.9)
+  );
+  background-attachment: local;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* 活动列表标题 */
+.list-title {
+  font-size: 1.8rem;
+  color: #ffb366;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 179, 102, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 活动列表  */
+.activity-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+}
+
+/* 活动项  */
+.activity-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+
+.activity-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* 活动名称 */
+.activity-name {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  flex-grow: 1;
+}
+
+.activity-name:hover {
+  color: #ed8936;
+}
+
+.activity-desc {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  flex-grow: 2;
+}
+
+.activity-date {
+  font-size: 1rem;
+  color: #ffb366;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+/* 按钮样式 */
+.button {
+  padding: 12px 24px;
+  background: #ed8936;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: center;
+}
+
+.button:hover {
+  background: #dd6b20;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  grid-column: 1 / -1;
+}
+
+.no-results h3 {
+  font-size: 1.5rem;
+  color: #ffb366;
+  margin-bottom: 15px;
+}
+.no-results h4 {
+  font-size: 1.5rem;
+  color: #ffb366;
+  margin-bottom: 15px;
+}
+/* AI增添了响应式设计，使得页面看起来更加高级 */
+@media (max-width: 1200px) {
+  .home-container {
+    flex-direction: column;
+  }
+  
+  .left-side {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 30px;
+  }
+  
+  .nav-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .activity-list-container {
+    height: auto;
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .activity-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-link {
+    font-size: 1.1rem;
+    padding: 12px 18px;
+  }
+  
+  .left-side, .right-side {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .nav-link {
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
+  
+  .search-box {
+    padding: 12px 18px;
+  }
+  
+  .activity-item {
+    padding: 20px;
+  }
+  
+  .left-side, .right-side {
+    padding: 0 15px;
+  }
+}

@@ -1,12 +1,47 @@
-# React + Vite
+# web开发暑校大作业：体育活动室
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 技术栈
+- **前端**: React.js, Vite, React Router, React Icons
+- **样式**: CSS, Sass
+- **状态管理**: React Hooks
+- **后端**: Node.js, Express 
+- **数据库**: SQLite, Sequelize (ORM)
+- **构建工具**: Vite
 
-Currently, two official plugins are available:
+## 项目结构
+```
+sports_activity_room/
+├── src/
+│   ├── App.jsx                # 应用入口
+│   ├── main.jsx               # 主渲染文件
+│   ├── pages_of_room/         # 页面组件
+│   │   ├── Home_page.jsx      # 首页
+│   │   ├── Login_page.jsx     # 登录页
+│   │   ├── Register_page.jsx  # 注册页
+│   │   ├── activity_detail_page.jsx  # 活动详情页
+│   │   ├── activity_manage_page.jsx  # 活动管理页
+│   │   └── order_page.jsx    # 订单页
+│   ├── assets/               # 静态资源
+│   └── styles/               # 全局样式
+├── back/                     # 后端代码（待完善）
+├── public/                   # 公共资源
+└── README.md                 # 项目说明
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 功能模块
+1. **用户模块**: 注册、登录、个人信息管理
+2. **活动模块**: 活动浏览、详情查看、报名、取消报名
+3. **评论模块**: 用户评论互动
+4. **管理模块**: 活动管理
 
-## Expanding the ESLint configuration
+## 运行项目
+1. 安装依赖: `npm install`
+2. 启动开发服务器: `npm run dev`
+3. 构建生产版本: `npm run build`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 后续计划
+- 完善后端API
+- 增加用户权限管理
+- 优化UI/UX设计
+## 项目简介
+本项目是一个体育场馆活动管理系统，旨在帮助用户浏览、报名和管理体育场馆内的各类活动。系统提供了活动详情查看、用户注册登录、活动报名、评论互动等功能。
