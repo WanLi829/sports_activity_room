@@ -1,11 +1,14 @@
 # web开发暑校大作业：体育活动室
-
+## Github链接
+    https://github.com/WanLi829/sports_activity_room.git
+## 打包平台
+    Windows
 ## 技术栈
 - **前端**: React.js, Vite, React Router, React Icons
 - **样式**: CSS, Sass
 - **状态管理**: React Hooks
 - **后端**: Node.js, Express 
-- **数据库**: SQLite, Sequelize (ORM)
+- **数据库**: SQLite
 - **构建工具**: Vite
 
 ## 项目结构
@@ -38,10 +41,5 @@ sports_activity_room/
 1. 安装依赖: `npm install`
 2. 启动开发服务器: `npm run dev`
 3. 构建生产版本: `npm run build`
-
-## 后续计划
-- 完善后端API
-- 增加用户权限管理
-- 优化UI/UX设计
 ## 项目简介
 本项目是一个体育场馆活动管理系统，旨在帮助用户浏览、报名和管理体育场馆内的各类活动。系统提供了活动详情查看、用户注册登录、活动报名、评论互动等功能。
