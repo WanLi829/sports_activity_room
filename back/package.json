@@ -1,22 +1,38 @@
 {
-  "name": "back",
+  "name": "sports-app-backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "main_app.js",
+  "bin": "main_app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node main_app.js",
+    "package": "pkg . --out-path ../release --targets node18-win-x64"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
-    "express": "^5.1.0",
+    "express": "^4.18.3",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.16.5",
-    "multer": "^2.0.2",
-    "sequelize": "^6.37.7",
+    "sequelize": "^6.37.0",
     "sqlite3": "^5.1.7"
+  },
+  "pkg": {
+    "assets": [
+      "../dist/**/*",
+      "../public/**/*"
+    ],
+    "scripts": [
+      "db.js",
+      "main_app.js",
+      "routes/*.js",
+      "models/*.js"
+    ],
+    "targets": ["node18-win-x64"],
+    "compression": "brotli",
+    "patches": {
+      "process.resourcesPath": "return require('path').dirname(process.execPath)"
+    }
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
   }
 }
