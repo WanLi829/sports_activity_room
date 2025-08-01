@@ -10,7 +10,9 @@ import {
   FaCheck, 
   FaTimes,
   FaRunning,
-  FaSpinner
+  FaSpinner,
+  FaStar,
+  FaThumbsUp
 } from "react-icons/fa";
 import './activity_detail_page.css';
 
@@ -313,10 +315,25 @@ function Activity_detail_page() {
           <FaArrowLeft /> 返回首页
         </Link>
         
-        {/* 活动详情卡片 */}
+        {/* 活动详情 */}
         <div className="activity-detail-card">
           <div className="activity-header">
-            <h1 className="activity-title">{activity.name}</h1>
+            <div className="title-and-rating">
+              <h1 className="activity-title">{activity.name}</h1>
+              {activity.rating > 0 && (
+                <div className="activity-rating">
+                  <div className="stars">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <FaStar 
+                        key={star} 
+                        className={star <= Math.floor(activity.rating) ? 'active' : ''}
+                      />
+                    ))}
+                  </div>
+                  <span className="rating-value">{activity.rating.toFixed(1)}</span>
+                </div>
+              )}
+            </div>
             <div className="activity-date">
               <FaCalendarAlt /> {activity.date || "日期待定"}
             </div>
@@ -398,6 +415,26 @@ function Activity_detail_page() {
                   <p className="comment-content">
                     {c.content}
                   </p>
+                  
+                  <div className="comment-footer">
+                    <button 
+                      className={`like-button ${localStorage.getItem(`comment_${c.id}_liked`) === 'true' ? 'liked' : ''}`}
+                      onClick={() => {
+                        const updatedComments = comments.map(comment => {
+                          if (comment.id === c.id) {
+                            const isLiked = localStorage.getItem(`comment_${comment.id}_liked`) === 'true';
+                            const newLikes = isLiked ? (comment.likes || 0) - 1 : (comment.likes || 0) + 1;
+                            localStorage.setItem(`comment_${comment.id}_liked`, !isLiked);
+                            return { ...comment, likes: newLikes };
+                          }
+                          return comment;
+                        });
+                        setComments(updatedComments);
+                      }}
+                    >
+                      <FaThumbsUp /> {c.likes || 0}
+                    </button>
+                  </div>
                   
                   {c.user === username && (
                     <div className="comment-actions">

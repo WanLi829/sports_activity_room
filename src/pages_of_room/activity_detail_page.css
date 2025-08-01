@@ -1,4 +1,4 @@
-/* 活动详情页面样式 */
+/* 活动详情 */
 .detail-page {
   background: linear-gradient(135deg, #1a365d, #27598a);
   min-height: 100vh;
@@ -53,6 +53,10 @@
   margin-bottom: 30px;
 }
 
+.title-and-rating {
+  flex: 1;
+}
+
 .activity-title {
   font-size: 2.8rem;
   font-weight: 700;
@@ -60,7 +64,37 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  max-width: 80%;
+  margin-bottom: 15px;
+}
+
+.activity-rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.stars {
+  display: flex;
+  gap: 5px;
+}
+
+.stars .active {
+  color: #ffb366;
+}
+
+.stars svg {
+  font-size: 1.5rem;
+  color: #4a5568;
+}
+
+.rating-value {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ffb366;
+  background: rgba(255, 179, 102, 0.1);
+  padding: 5px 12px;
+  border-radius: 20px;
 }
 
 .activity-date {
@@ -238,6 +272,35 @@
   margin-bottom: 20px;
 }
 
+.comment-footer {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+
+.like-button {
+  padding: 8px 16px;
+  background: rgba(56, 178, 172, 0.2);
+  color: #38b2ac;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.like-button:hover {
+  background: rgba(56, 178, 172, 0.3);
+}
+
+.like-button.liked {
+  background: rgba(56, 178, 172, 0.4);
+  color: white;
+}
+
 .comment-actions {
   display: flex;
   justify-content: flex-end;
@@ -349,6 +412,15 @@
   .activity-description {
     font-size: 1.1rem;
   }
+
+  .stars svg {
+    font-size: 1.3rem;
+  }
+
+  .rating-value {
+    font-size: 1.2rem;
+    padding: 4px 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -377,5 +449,19 @@
   
   .comments-title {
     font-size: 1.6rem;
+  }
+
+  .activity-rating {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .stars svg {
+    font-size: 1.2rem;
+  }
+
+  .rating-value {
+    font-size: 1.1rem;
   }
 }

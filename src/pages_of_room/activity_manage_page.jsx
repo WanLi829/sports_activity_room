@@ -9,23 +9,30 @@ import {
   FaCalendarAlt, 
   FaClipboardList, 
   FaLock,
-  FaSignInAlt
+  FaSignInAlt,
+  FaStar
 } from "react-icons/fa";
 import './activity_manage_page.css';
 
 function ActivityManage_page() {
   const [activities, setActivities] = useState([]);
-  const [form, setForm] = useState({ name: "", desc: "", date: "" });
+  const [form, setForm] = useState({ name: "", desc: "", date: "", rating: 0 });
   const [editId, setEditId] = useState(null);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("token");
   
-  // 检查现在用户的登陆状态
+  // 检查用户登录状态
   const isLoggedIn = !!token;
 
-  // 获取用户创建的活动有哪些
+  // 获取用户创建的活动
   useEffect(() => {
     if (!isLoggedIn) return;
+    
+    const savedActivities = localStorage.getItem('userActivities');
+    if (savedActivities) {
+      setActivities(JSON.parse(savedActivities));
+      setLoading(false);
+    }
     
     setLoading(true);
     fetch("http://localhost:3001/api/activity/my-activities", {
@@ -39,6 +46,7 @@ function ActivityManage_page() {
       })
       .then(data => {
         setActivities(data);
+        localStorage.setItem('userActivities', JSON.stringify(data));
         setLoading(false);
       })
       .catch((error) => {
@@ -99,7 +107,7 @@ function ActivityManage_page() {
             acts.map(a => a.id === editId ? { ...a, ...form } : a)
           );
           setEditId(null);
-          setForm({ name: "", desc: "", date: "" });
+          setForm({ name: "", desc: "", date: "", rating: 0 });
         } else {
           alert("您不是活动发起人！修改失败！");
         }
@@ -117,7 +125,7 @@ function ActivityManage_page() {
         const data = await res.json();
         if (res.ok) {
           setActivities(acts => [...acts, data]);
-          setForm({ name: "", desc: "", date: "" });
+          setForm({ name: "", desc: "", date: "", rating: 0 });
         } else {
           alert(data.message || "添加失败");
         }
@@ -154,7 +162,8 @@ function ActivityManage_page() {
     setForm({ 
       name: activity.name, 
       desc: activity.desc, 
-      date: activity.date 
+      date: activity.date,
+      rating: activity.rating || 0
     });
     setEditId(activity.id);
     document.querySelector('.manage-form-card').scrollIntoView({ 
@@ -168,22 +177,24 @@ function ActivityManage_page() {
         <div className="manage-container">
           <div className="manage-header">
             <h1 className="manage-title">
-              <FaLock /> 活动管理
+              <FaLock className="title-icon" /> 活动管理
             </h1>
             <Link to="/" className="back-button">
-              <FaArrowLeft /> 返回首页
+              <FaArrowLeft className="button-icon" /> 返回首页
             </Link>
           </div>
           
           <div className="no-permission">
-            <FaLock className="no-permission-icon" />
-            <h2 className="no-permission-title">目前无权限查看！</h2>
-            <p className="no-permission-text">
-              您尚未登录！请先登录后再查看活动管理界面！
-            </p>
-            <Link to="/login" className="login-link">
-              <FaSignInAlt /> 立即登录
-            </Link>
+            <div className="permission-card">
+              <FaLock className="no-permission-icon" />
+              <h2 className="no-permission-title">目前无权限查看！</h2>
+              <p className="no-permission-text">
+                您尚未登录！请先登录后再查看活动管理界面！
+              </p>
+              <Link to="/login" className="login-link">
+                <FaSignInAlt className="button-icon" /> 立即登录
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -195,17 +206,17 @@ function ActivityManage_page() {
       <div className="manage-container">
         <div className="manage-header">
           <h1 className="manage-title">
-            <FaClipboardList /> 活动管理
+            <FaClipboardList className="title-icon" /> 活动管理
           </h1>
           <Link to="/" className="back-button">
-            <FaArrowLeft /> 返回首页
+            <FaArrowLeft className="button-icon" /> 返回首页
           </Link>
         </div>
         
         <div className="manage-content">
-          <div className="manage-form-card">
+          <div className="manage-form-card card">
             <h2 className="form-title">
-              {editId ? <FaEdit /> : <FaPlus />}
+              {editId ? <FaEdit className="title-icon" /> : <FaPlus className="title-icon" />}
               {editId ? "编辑活动" : "添加新活动"}
             </h2>
             
@@ -243,62 +254,72 @@ function ActivityManage_page() {
                 />
               </div>
               
-              <button className="submit-button" type="submit">
-                {editId ? "保存修改" : "添加活动"}
-              </button>
-              
-              {editId && (
-                <button 
-                  className="submit-button"
-                  type="button"
-                  style={{ 
-                    background: "rgba(255, 255, 255, 0.1)",
-                    marginTop: "10px"
-                  }}
-                  onClick={() => {
-                    setEditId(null);
-                    setForm({ name: "", desc: "", date: "" });
-                  }}
-                >
-                  取消编辑
+              <div className="form-buttons">
+                <button className="submit-button" type="submit">
+                  {editId ? "保存修改" : "添加活动"}
                 </button>
-              )}
+                
+                {editId && (
+                  <button 
+                    className="cancel-button"
+                    type="button"
+                    onClick={() => {
+                      setEditId(null);
+                      setForm({ name: "", desc: "", date: "", rating: 0 });
+                    }}
+                  >
+                    取消编辑
+                  </button>
+                )}
+              </div>
             </form>
           </div>
           
-          <div className="manage-list-card">
+          <div className="manage-list-card card">
             <h2 className="list-title">
-              <FaClipboardList /> 我的活动列表
+              <FaClipboardList className="title-icon" /> 我的活动列表
             </h2>
             
             <div className="activity-list">
               {loading ? (
-                <div style={{ 
-                  textAlign: 'center', 
-                  padding: '40px',
-                  color: '#ffb366'
-                }}>
+                <div className="loading-placeholder">
+                  <div className="spinner"></div>
                   <p>正在加载活动列表！请稍后！</p>
                 </div>
               ) : activities.length === 0 ? (
-                <div style={{ 
-                  textAlign: 'center', 
-                  padding: '40px',
-                  background: 'rgba(255,255,255,0.05)',
-                  borderRadius: '12px'
-                }}>
-                  <p style={{ color: '#ffb366' }}>您还没有创建任何活动哟！</p>
-                  <p style={{ color: '#cbd5e0', marginTop: '10px' }}>
+                <div className="empty-placeholder">
+                  <FaClipboardList className="empty-icon" />
+                  <p className="empty-title">您还没有创建任何活动哟！</p>
+                  <p className="empty-text">
                     添加属于您自己的第一个活动！
                   </p>
                 </div>
               ) : (
                 activities.map(a => (
-                  <div className="activity-item" key={a.id}>
+                  <div className="activity-item card" key={a.id}>
                     <div className="activity-header">
-                      <h3 className="activity-name">{a.name}</h3>
-                      <div className="activity-date">
-                        <FaCalendarAlt /> {a.date || "日期待定"}
+                      <div className="activity-info">
+                        <h3 className="activity-name">{a.name}</h3>
+                        <div className="activity-date">
+                          <FaCalendarAlt className="date-icon" /> {a.date || "日期待定"}
+                        </div>
+                      </div>
+                      <div className="activity-rating">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <span 
+                            key={star} 
+                            className={`star ${a.rating >= star ? 'active' : ''}`}
+                            onClick={() => {
+                              const updatedActivities = activities.map(act => 
+                                act.id === a.id ? { ...act, rating: star } : act
+                              );
+                              setActivities(updatedActivities);
+                              localStorage.setItem('userActivities', JSON.stringify(updatedActivities));
+                            }}
+                          >
+                            <FaStar />
+                          </span>
+                        ))}
                       </div>
                     </div>
                     
@@ -315,13 +336,13 @@ function ActivityManage_page() {
                         className="action-button edit-button"
                         onClick={() => handleEdit(a)}
                       >
-                        <FaEdit /> 编辑
+                        <FaEdit className="button-icon" /> 编辑
                       </button>
                       <button 
                         className="action-button delete-button"
                         onClick={() => handleDelete(a.id)}
                       >
-                        <FaTrash /> 删除
+                        <FaTrash className="button-icon" /> 删除
                       </button>
                     </div>
                   </div>
